@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Pizzaria/static/css/main.47f10f3f.css",
+    "main.js": "/Pizzaria/static/js/main.bdc83721.js",
+    "static/js/787.dc6a5577.chunk.js": "/Pizzaria/static/js/787.dc6a5577.chunk.js",
+    "static/media/pizza-logo.svg": "/Pizzaria/static/media/pizza-logo.56ac87032d8f6fdf863326acd06c0d97.svg",
+    "index.html": "/Pizzaria/index.html",
+    "main.47f10f3f.css.map": "/Pizzaria/static/css/main.47f10f3f.css.map",
+    "main.bdc83721.js.map": "/Pizzaria/static/js/main.bdc83721.js.map",
+    "787.dc6a5577.chunk.js.map": "/Pizzaria/static/js/787.dc6a5577.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47f10f3f.css",
+    "static/js/main.bdc83721.js"
+  ]
+}
