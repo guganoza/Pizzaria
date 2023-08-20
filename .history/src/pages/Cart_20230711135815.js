@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//cart
+
 export default function Cart() {
   return (
     <div className="content">
