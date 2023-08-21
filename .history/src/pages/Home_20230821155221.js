@@ -33,6 +33,7 @@ export default (function Home() {
 
     window.scrollTo(0, 0);
   }, [CatergoryId, sortid, searchValue, pageCount]);
+  console.log(CatergoryId);
 
   return (
     <div className="content">

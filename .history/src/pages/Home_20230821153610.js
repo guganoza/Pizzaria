@@ -7,24 +7,27 @@ import PizzaSkelet from '../components/PizzaSkelet';
 import Pagination from '../components/Pagination';
 import { SearchContext } from '../App';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
+import { setCategoryId, setPageCount } from '../redux/slices/filterSlice';
 import axios from 'axios';
 
 export default (function Home() {
-  const { CatergoryId, sortid, pageCount } = useSelector((state) => state.filter);
+  const CatergoryId = useSelector((state) => state.filter.categoryId);
+  const sortId = useSelector((state) => state.filter.sortid);
   const dispatch = useDispatch();
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const onChangePage = (number) => dispatch(setCurrentPage(number));
+  const onChangePage = (number) => dispatch(setPageCount(number));
   useEffect(() => {
     setIsLoading(true);
+
     axios
       .get(
-        `https://64a510fa00c3559aa9befea6.mockapi.io/items?page=${pageCount}&limit=4&${
+        `https://64a510fa00c3559aa9befea6.mockapi.io/items?page=${currentPage}&limit=4&${
           CatergoryId > 0 ? `category=${CatergoryId}` : ''
-        }&sortBy=${sortid.sortProp}&order=desc&search=${searchValue}`,
+        }&sortBy=${sortId.sortProp}&order=desc&search=${searchValue}`,
       )
       .then((res) => {
         setItems(res.data);
@@ -32,8 +35,7 @@ export default (function Home() {
       });
 
     window.scrollTo(0, 0);
-  }, [CatergoryId, sortid, searchValue, pageCount]);
-
+  }, [CatergoryId, sortId, searchValue, currentPage]);
   return (
     <div className="content">
       <div className="content__top">
@@ -45,6 +47,7 @@ export default (function Home() {
         />
         <Sort />
       </div>
+
       <h2 className="content__title">All Pizzas</h2>
 
       <div className="content__items">
@@ -52,7 +55,7 @@ export default (function Home() {
           ? [...new Array(6)].map((_, index) => <PizzaSkelet key={index} />)
           : items.map((obj) => <Pizzas key={obj.id} {...obj} />)}
       </div>
-      <Pagination value={pageCount} onChangePage={onChangePage} />
+      <Pagination onChangePage={onChangePage} />
     </div>
   );
 });

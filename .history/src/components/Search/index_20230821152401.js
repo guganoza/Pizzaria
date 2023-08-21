@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce';
 
 export default function Search() {
   const [values, setValues] = React.useState('');
-  const { setSearchValue } = React.useContext(SearchContext);
+  const { searchValue, setSearchValue } = React.useContext(SearchContext);
   const inputRef = React.useRef();
   const onClickClear = () => {
     setValues('');
@@ -15,7 +15,7 @@ export default function Search() {
   const updatedSearch = React.useCallback(
     debounce((str) => {
       setSearchValue(str);
-    }, 250),
+    }, 500),
     [],
   );
 

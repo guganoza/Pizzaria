@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { act } from 'react-dom/test-utils';
 
 const initialState = {
-  CatergoryId: 0,
+  categoryId: 0,
   sortid: { name: 'popularity', sortProp: 'rating' },
   pageCount: 1,
 };
@@ -18,12 +19,12 @@ const filterSlice = createSlice({
       state.sortid = action.payload;
     },
 
-    setCurrentPage(state, action) {
+    setPageCount(state, action) {
       state.pageCount = action.payload;
     },
   },
 });
 
-export const { setCategoryId, setSortId, setCurrentPage } = filterSlice.actions;
+export const { setCategoryId, setSortId, setPageCount } = filterSlice.actions;
 
 export default filterSlice.reducer;

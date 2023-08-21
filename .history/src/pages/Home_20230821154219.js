@@ -20,6 +20,7 @@ export default (function Home() {
   const onChangePage = (number) => dispatch(setCurrentPage(number));
   useEffect(() => {
     setIsLoading(true);
+
     axios
       .get(
         `https://64a510fa00c3559aa9befea6.mockapi.io/items?page=${pageCount}&limit=4&${
@@ -33,7 +34,6 @@ export default (function Home() {
 
     window.scrollTo(0, 0);
   }, [CatergoryId, sortid, searchValue, pageCount]);
-
   return (
     <div className="content">
       <div className="content__top">
@@ -45,6 +45,7 @@ export default (function Home() {
         />
         <Sort />
       </div>
+
       <h2 className="content__title">All Pizzas</h2>
 
       <div className="content__items">
@@ -52,7 +53,7 @@ export default (function Home() {
           ? [...new Array(6)].map((_, index) => <PizzaSkelet key={index} />)
           : items.map((obj) => <Pizzas key={obj.id} {...obj} />)}
       </div>
-      <Pagination value={pageCount} onChangePage={onChangePage} />
+      <Pagination value={pageCount} onChangePage={setCurrentPage} />
     </div>
   );
 });
