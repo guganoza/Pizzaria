@@ -11,7 +11,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setCategoryId(state, action) {
-      state.CatergoryId = action.payload;
+      state.categoryId = action.payload;
     },
 
     setSortId(state, action) {

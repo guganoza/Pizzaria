@@ -18,7 +18,7 @@ export default (function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const onClickCategory = (i) => {
-    dispatch(setCategoryId(i));
+    setCategoryId(i);
   };
 
   const onChangePage = (number) => dispatch(setCurrentPage(number));
@@ -41,7 +41,7 @@ export default (function Home() {
   return (
     <div className="content">
       <div className="content__top">
-        <Category category={CatergoryId} onClickCategory={onClickCategory} />
+        <Category category={CatergoryId} onClickCategory={dispatch(onClickCategory)} />
         <Sort />
       </div>
       <h2 className="content__title">All Pizzas</h2>

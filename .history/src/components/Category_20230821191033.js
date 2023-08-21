@@ -3,6 +3,7 @@ import '../scss/app.scss';
 
 export default function Category({ category, onClickCategory }) {
   const categories = ['All', 'Mooshrooms', 'Vegetarian', 'On grill', 'Spicy'];
+  console.log(category);
   return (
     <div className="categories">
       <ul>

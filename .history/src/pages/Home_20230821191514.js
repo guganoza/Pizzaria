@@ -18,7 +18,7 @@ export default (function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const onClickCategory = (i) => {
-    dispatch(setCategoryId(i));
+    setCategoryId(i);
   };
 
   const onChangePage = (number) => dispatch(setCurrentPage(number));

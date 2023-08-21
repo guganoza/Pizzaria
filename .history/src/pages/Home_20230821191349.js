@@ -16,9 +16,10 @@ export default (function Home() {
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  console.log(category);
 
   const onClickCategory = (i) => {
-    dispatch(setCategoryId(i));
+    setCategoryId(i);
   };
 
   const onChangePage = (number) => dispatch(setCurrentPage(number));
